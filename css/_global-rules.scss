@@ -1,0 +1,156 @@
+$main: #0eb582;
+$light-main: #f0fdfa;
+$black: #444;
+$light: #777;
+$light-white: #eee;
+$white: #fff;
+$border: .1rem solid $main;
+$box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all .2s linear;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
+  overflow-x: hidden;
+
+  ::-webkit-scrollbar {
+    width: 1rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: $white;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: $main;
+  }
+}
+
+::selection {
+  background-color: $main;
+  color: $white;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: darkcyan;
+}
+
+a {
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+input {
+  outline: none;
+}
+
+section {
+  padding: 5rem 10%;
+  
+}
+
+img {
+  max-width: 100%;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  font-size: 4rem;
+  color: $black;
+  cursor: pointer;
+  font-weight: bolder;
+  display: none;
+  z-index: 100;
+}
+
+.close-btn.close-lg {
+  display: block;
+}
+
+.close-btn:hover {
+  transform: rotate(90deg);
+}
+
+@media (max-width: 767px) {
+  .close-btn {
+    display: block;
+  }
+}
+
+.main-btn {
+  display: inline-block;
+  padding: 1.2rem 3rem;
+  margin-top: 1rem;
+  font-size: 1.8rem;
+  background-color: $light-main;
+  color: $main;
+  border: $border;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.main-btn:hover {
+  background-color: $main;
+  color: $white;
+}
+
+.main-title {
+  @include titleText(3.5rem);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+
+  section {
+    padding: 3rem 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  html {
+    font-size: 50%;
+  }
+
+  .main-title {
+    font-size: 3rem;
+  }
+}
+
+// Page Heading
+.page-head {
+  background-image: url(../images/heading-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  // background-repeat: no-repeat;
+  text-align: center;
+
+  h2 {
+    @include titleText(4rem);
+    margin-bottom: 1rem;
+  }
+
+  p {
+    text-transform: capitalize;
+    font-size: 2rem;
+    color: $light;
+
+    a {
+      color: $main;
+    }
+  }
+}

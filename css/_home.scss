@@ -1,0 +1,448 @@
+header {
+  background-color: $white;
+  box-shadow: $box-shadow;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 10%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  .logo {
+    @include titleText(2.5rem);
+    font-weight: bold;
+
+    i {
+      color: $main;
+    }
+  }
+
+  .nav {
+    margin-left: auto;
+
+    a {
+      @include titleText(2rem);
+      margin-right: 2rem;
+
+      &:hover {
+        color: $main;
+      }
+    }
+  }
+
+  .icons {
+    font-size: 2.5rem;
+
+    .menu-bar {
+      display: none;
+    }
+
+    >div {
+      margin-left: 1.5rem;
+      cursor: pointer;
+
+      &:hover {
+        color: $main;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 991px) {
+  header {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+
+  header .icons .menu-bar {
+    display: inline-block;
+  }
+
+  header .nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    background-color: $white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30rem;
+    max-width: 100%;
+
+    &.active {
+      right: 0;
+      box-shadow: 0 0 0 100vw rgb(0 0 0 / 80%);
+    }
+
+    a {
+      font-size: 3rem;
+      margin: 1.2rem 0;
+      text-align: center;
+    }
+  }
+}
+
+.login-register {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0 0 0 / 80%);
+  z-index: 100;
+
+  &.active {
+    right: 0;
+  }
+
+  .container {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    background-color: $white;
+    width: 35rem;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+
+    .account {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+
+      .register {
+        margin-top: 0;
+      }
+
+      .login {
+        background-color: $main;
+        padding: 1rem 3rem;
+        color: $white;
+        border: $border;
+        font-size: 1.8rem;
+      }
+    }
+
+    form {
+      border: $border;
+      margin-top: 2rem;
+      padding: 2rem;
+
+      h3 {
+        @include titleText(2.5rem);
+        text-transform: uppercase;
+        text-align: center;
+        padding-bottom: 0.5rem;
+      }
+
+      >input {
+        width: 100%;
+        border: $border;
+        outline: none;
+        margin: .7rem 0;
+        padding: 1.2rem 1.4rem;
+        font-size: 1.6rem;
+      }
+
+      .flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.5rem;
+        padding: 1rem 0;
+
+        .remember {
+          color: $light;
+          display: flex;
+          align-items: center;
+          gap: .5rem;
+          font-size: 1.5rem;
+
+          label {
+            cursor: pointer;
+          }
+        }
+
+        .forget {
+          color: $light;
+        }
+
+        .forget:hover {
+          color: $main;
+          text-decoration: underline;
+        }
+      }
+
+      .main-btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+  }
+}
+
+// Home
+.home {
+  padding: 0;
+
+  .swiper-wrapper .swiper-slide {
+    background-size: cover;
+    background-position: center;
+    height: 60rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .swiper-wrapper {
+    .slide1 {
+      background-image: url(../images/home-slide-1.jpg);
+    }
+
+    .slide2 {
+      background-image: url(../images/home-slide-2.jpg);
+    }
+
+    .slide3 {
+      background-image: url(../images/home-slide-3.jpg);
+    }
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: $main;
+  }
+
+  .swiper-slide {
+    .info {
+      width: 50rem;
+    }
+
+    h2 {
+      @include titleText(5rem);
+      color: $white;
+      line-height: 1.4;
+    }
+
+    p {
+      @include graphText(1.6rem);
+      color: $white;
+      margin: 1rem 0;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .home .swiper-slide h2 {
+    font-size: 3rem;
+  }
+
+  .swiper-wrapper .swiper-slide {
+    text-align: center;
+  }
+}
+
+// Subjects
+.subjects {
+  background-color: $white;
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    // justify-content: center;
+    gap: 2rem;
+  }
+
+  .box {
+    padding: 3rem 2rem;
+    text-align: center;
+    cursor: pointer;
+    background-color: $light-main;
+    border: $border;
+
+    &:hover {
+      background-color: $main;
+
+      h3,
+      p {
+        color: $white;
+      }
+    }
+
+    img {
+      width: 10rem;
+    }
+
+    h3 {
+      @include titleText(1.7rem);
+      margin: 1.2rem 0 .5rem;
+    }
+
+    p {
+      @include graphText(1.5rem);
+    }
+  }
+}
+
+// Courses
+.courses {
+  background-color: $white;
+
+  .slide {
+    background-color: $light-main;
+    text-align: center;
+    position: relative;
+
+    h3 {
+      @include titleText(2rem);
+    }
+
+    .image {
+      padding: 2rem;
+
+      img {
+        width: 100%;
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    .info {
+      position: absolute;
+      bottom: -100%;
+      left: 0;
+      right: 0;
+      padding: 2rem 3rem;
+      background-color: $main;
+
+      h3 {
+        color: $white;
+      }
+
+      p {
+        @include graphText(1.5rem);
+        color: $white;
+        margin: 1rem 0;
+
+      }
+
+      a:hover {
+        background-color: $black;
+      }
+    }
+
+    &:hover .info {
+      bottom: 0;
+    }
+  }
+}
+
+// Footer
+.footer {
+  background-color: $light-main;
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 2rem;
+
+    p,
+    .links a {
+      color: $light;
+    }
+
+    .box {
+      p {
+        @include graphText(1.5rem);
+        padding: 1rem 0;
+      }
+
+      .links a {
+        font-size: 1.5rem;
+        display: block;
+      }
+
+      h3 {
+        @include titleText(2.2rem);
+        padding: 1rem 0;
+      }
+
+      .social {
+        display: flex;
+        align-items: center;
+        margin-top: 1rem;
+
+        a {
+          color: $white;
+          background-color: $main;
+          width: 4.5rem;
+          height: 4.5rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 1.7rem;
+          margin-right: 0.3rem;
+
+          &:hover {
+            background-color: $black;
+          }
+        }
+      }
+
+      .links a {
+        padding: 1.2rem 0;
+
+        &:hover {
+          color: $main;
+          text-decoration: underline;
+        }
+      }
+
+      input[type="email"] {
+        border: $border;
+        width: 100%;
+        padding: 1.2rem 1.4rem;
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+      }
+
+      .main-btn {
+        width: fit-content;
+      }
+
+      &:first-child h3 i {
+        color: $main;
+      }
+    }
+  }
+
+  .copyright {
+    margin-top: 3rem;
+    padding-top: 3rem;
+    text-align: center;
+    @include titleText(2rem);
+    border-top: $border;
+
+    span {
+      color: $main;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .footer .container .box {
+    text-align: center;
+
+    .social {
+      justify-content: center;
+    }
+  }
+}

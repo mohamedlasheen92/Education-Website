@@ -1,0 +1,166 @@
+// about
+.about {
+  background-color: $white;
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 3rem;
+
+    .image img {
+      width: 100%;
+    }
+
+    >div {
+      flex: 1 1 40rem;
+
+      h3 {
+        @include titleText(3rem);
+      }
+
+      p {
+        @include graphText(1.5rem);
+        margin: 1rem 0;
+      }
+    }
+
+    .info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+      gap: 2rem;
+
+      .box {
+        border: $border;
+        background-color: $light-main;
+        padding: 3rem 2rem;
+        text-align: center;
+
+        img {
+          width: 50px;
+        }
+
+        h4 {
+          @include titleText(3rem);
+          margin: .5rem 0;
+        }
+
+        span {
+          @include graphText(1.5rem);
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+}
+
+// Teachers
+.teachers {
+  background-color: $white;
+
+  .swiper-slide {
+
+    .image {
+      position: relative;
+      overflow: hidden;
+
+      img {
+        background-color: $light-main;
+        width: 100%;
+      }
+    }
+
+    .social {
+      position: absolute;
+      left: 0;
+      bottom: -8rem;
+      background-color: rgb(0 0 0 / 80%);
+      padding: 2rem;
+      text-align: center;
+      width: 100%;
+
+      a {
+        color: $white;
+        font-size: 3rem;
+        margin: 0 1rem;
+
+        &:hover {
+          color: $main;
+        }
+      }
+    }
+
+    &:hover {
+      .image img {
+        background-color: $main;
+      }
+
+      .social {
+        bottom: 0;
+      }
+    }
+
+    .expert {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 1rem;
+
+      h4 {
+        @include titleText(2rem);
+      }
+
+      p {
+        @include graphText(1.5rem);
+      }
+    }
+  }
+
+
+}
+
+// Review
+.review {
+  background-color: $white;
+
+  .slide {
+    text-align: center;
+
+    p {
+      background-color: $light-main;
+      padding: 2rem;
+      border: $border;
+      @include graphText(1.5rem);
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%) rotate(135deg);
+        bottom: -1.2rem;
+        width: 2rem;
+        height: 2rem;
+        background-color: #f0fdfa;
+        border: 0.1rem solid;
+        border-color: $main $main transparent transparent;
+      }
+    }
+
+    img {
+      margin: 3rem 0 1rem;
+      width: 7rem;
+      height: 7rem;
+      border-radius: 50%;
+    }
+
+    h3 {
+      @include titleText(2.2rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .stars {
+      color: $main;
+      font-size: 1.2rem;
+    }
+  }
+}
